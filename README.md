@@ -59,6 +59,13 @@ npm run dev                # Vite + the Workers runtime, with local D1/R2
 
 ## Deploying
 
+Pushes to `main` deploy automatically via GitHub Actions (`.github/workflows/deploy.yml`):
+typecheck, apply D1 migrations, build, `wrangler deploy`. You can also run it by hand from
+the Actions tab. It needs two repository secrets: `CLOUDFLARE_API_TOKEN` and
+`CLOUDFLARE_ACCOUNT_ID`.
+
+To deploy manually instead:
+
 ```bash
 npm run db:migrate:remote  # apply migrations to the real D1 database
 npm run deploy             # vite build + wrangler deploy
